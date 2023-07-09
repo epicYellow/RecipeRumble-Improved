@@ -26,7 +26,6 @@ export const NewCompScreenStyle = StyleSheet.create({
   },
   IngredientsContainer: {
     marginVertical: 20,
-    // width: "90%",
     justifyContent: "flex-start",
     flexWrap: "wrap",
     flexDirection: "row",
@@ -36,12 +35,11 @@ export const NewCompScreenStyle = StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
     padding: 20,
-    // height: 600,
     justifyContent: "space-between",
   },
   IngredientView: {
     margin: 2,
-    height: 40,
+    padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
     backgroundColor: Colors.LightGreen,
@@ -70,7 +68,6 @@ export const NewCompScreenStyle = StyleSheet.create({
   },
   StepsContainer: {
     marginVertical: 20,
-    // width: "90%",
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
@@ -80,9 +77,9 @@ export const NewCompScreenStyle = StyleSheet.create({
   StepsView: {
     width: "100%",
     margin: 2,
-    height: 40,
     paddingLeft: 15,
     paddingRight: 15,
+    padding: 10,
     backgroundColor: Colors.LightRed,
     borderRadius: 20,
     justifyContent: "center",

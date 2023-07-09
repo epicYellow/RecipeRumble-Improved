@@ -51,5 +51,13 @@ export const Global = StyleSheet.create({
     width: "90%",
     borderBottomColor: Colors.Gray,
     borderBottomWidth: 0.5,
-  }
+  },
+  GrayLine: {
+    marginTop: 20,
+    marginBottom: 20,
+    width: "95%",
+    alignSelf: "center",
+    borderBottomColor: Colors.Gray,
+    borderBottomWidth: 0.5,
+  },
 });

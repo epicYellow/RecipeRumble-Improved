@@ -25,6 +25,8 @@ const ResultsTopBox = ({
   };
   const navigation = useNavigation();
 
+  const VoteData = project;
+
   return (
     <View
       style={[
@@ -53,7 +55,7 @@ const ResultsTopBox = ({
       </View>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate("IndRecipe", { project })}
+        onPress={() => navigation.navigate("IndRecipe", { VoteData })}
         style={styles.ButtonVoteSub}
       >
         <View style={CompStyles.IconButtBack}>

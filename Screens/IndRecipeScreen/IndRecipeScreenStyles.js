@@ -77,7 +77,6 @@ export const IndRecipeScreenStyles = StyleSheet.create({
     paddingBottom: 85,
   },
   ButtonVoteSub: {
-    marginTop: 30,
     width: "90%",
     height: 90,
     backgroundColor: Colors.Dirty_White_Darker,

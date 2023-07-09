@@ -25,12 +25,8 @@ const IndRecipeScreen = ({ route, navigation }) => {
 
   useFocusEffect(
     useCallback(() => {
-      //get data when viewing screen
       getAll();
-      return () => {
-        //clean up
-        console.log("not in view");
-      };
+      return () => {};
     }, [])
   );
 
@@ -63,21 +59,10 @@ const IndRecipeScreen = ({ route, navigation }) => {
         </ImageBackground>
         <View style={IndRecipeScreenStyles.BottomContainer}>
           <View style={IndRecipeScreenStyles.Description}>
-            {/* <ScrollView > */}
             <Text style={[Global.Paragraph]}>{project.Description}</Text>
-            {/* </ScrollView> */}
           </View>
 
-          <View
-            style={{
-              marginTop: 30,
-              marginBottom: 30,
-              width: "90%",
-              alignSelf: "center",
-              borderBottomColor: Colors.Gray,
-              borderBottomWidth: 0.5,
-            }}
-          />
+          <View style={Global.GrayLine} />
 
           <Text style={Global.HeadingTwo}>Ingredients</Text>
           <View style={NewCompScreenStyle.IngredientsContainer}>
@@ -98,17 +83,7 @@ const IndRecipeScreen = ({ route, navigation }) => {
             ))}
           </View>
 
-          <View
-            style={{
-              marginTop: 30,
-              marginBottom: 30,
-              width: "90%",
-              alignSelf: "center",
-
-              borderBottomColor: Colors.Gray,
-              borderBottomWidth: 0.5,
-            }}
-          />
+          <View style={Global.GrayLine} />
         </View>
         <View style={IndRecipeScreenStyles.ButtonVoteSub}>
           {/* TODO only one submission allowed*/}

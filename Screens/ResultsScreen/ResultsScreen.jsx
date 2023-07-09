@@ -137,7 +137,7 @@ const ResultsScreen = ({ route }) => {
                   >
                     {item.Ingredients.filter((item, index) => index < 2).map(
                       (Ingredient) => (
-                        <Text>{Ingredient}</Text>
+                        <Text key={index}>{Ingredient}</Text>
                       )
                     )}
                   </View>
