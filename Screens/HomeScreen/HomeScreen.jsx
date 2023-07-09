@@ -1,47 +1,36 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import {
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ImageBackground, ScrollView, Text, View } from "react-native";
 import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBox";
 import Loader from "../../Components/Partials/Loader/Loader";
-import {
-  CompetitionData,
-  getAllCompetitions,
-} from "../../Services/CompetitionService";
+import { getAllCompetitions } from "../../Services/CompetitionService";
 import { GetCurrentUser } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
-import { Colors } from "../../Utils/ReUsables";
 import { HomeStyles } from "./HomeScreenStyles";
 
 const HomeScreen = () => {
   const [Competitions, setCompetitions] = useState([]);
-  const [Submissions, setSubmissions] = useState();
   const [Loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useFocusEffect(
     useCallback(() => {
-      //get data when viewing screen
       getAll();
-      return () => {
-        //clean up
-        console.log("not in view");
-      };
     }, [])
   );
 
   const getAll = async () => {
     setLoading(true);
-    console.log("getting data");
-    const allCompetitions = await getAllCompetitions();
-    setCompetitions(allCompetitions);
-    setLoading(false);
+    setError(null);
+
+    try {
+      const allCompetitions = await getAllCompetitions();
+      setCompetitions(allCompetitions);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const user = GetCurrentUser();
@@ -64,15 +53,7 @@ const HomeScreen = () => {
 
         <View style={HomeStyles.Competitions}>
           <Text style={Global.HeadingOne}>Competitions:</Text>
-          <View
-            style={{
-              marginTop: 25,
-              marginBottom: 10,
-              width: "90%",
-              borderBottomColor: Colors.Gray,
-              borderBottomWidth: 0.5,
-            }}
-          />
+          <View style={global.separator} />
           <View style={{ height: 10 }}></View>
           <Text style={[Global.HeadingThree, { textAlign: "center" }]}>
             Tap away on a competition that sparks your dish
@@ -87,9 +68,18 @@ const HomeScreen = () => {
           </Text>
           <View style={HomeStyles.innerContainerScroll}>
             <Loader loading={Loading} position={""} />
-            {Competitions.map((item, index) => {
-              return <CompetitionBox key={index} CompData={item} />;
-            })}
+
+            {error ? (
+              <Text style={Global.Paragraph}>Error: {error}</Text>
+            ) : (
+              <>
+                {Competitions.map((item, index) => {
+                  return (
+                    <CompetitionBox key={index} Index={index} CompData={item} />
+                  );
+                })}
+              </>
+            )}
           </View>
         </View>
       </ScrollView>

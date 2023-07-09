@@ -45,4 +45,11 @@ export const Global = StyleSheet.create({
     paddingLeft: 15,
     color: Colors.Red,
   },
+  separator: {
+    marginTop: 25,
+    marginBottom: 10,
+    width: "90%",
+    borderBottomColor: Colors.Gray,
+    borderBottomWidth: 0.5,
+  }
 });

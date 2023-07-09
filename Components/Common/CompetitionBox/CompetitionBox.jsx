@@ -6,7 +6,7 @@ import { getSubmissionsById } from "../../../Services/CompetitionService";
 import { Global } from "../../../Utils/GlobalStyles";
 import { CompetitionBoxStyles } from "./CompetitionBoxStyles";
 
-const CompetitionBox = ({ CompData, route }) => {
+const CompetitionBox = ({ CompData, route, Index }) => {
   console.log("LOLLOS");
   console.log(CompData.CompId);
   const imageSource = {
@@ -22,8 +22,6 @@ const CompetitionBox = ({ CompData, route }) => {
       //get data when viewing screen
       getAll();
       return () => {
-        //clean up
-        // console.log("not in view");
       };
     }, [])
   );
@@ -36,6 +34,7 @@ const CompetitionBox = ({ CompData, route }) => {
 
   return (
     <TouchableOpacity
+      key={Index}
       onPress={() => navigation.navigate("Competitions", { CompData })}
       style={CompetitionBoxStyles.Container}
     >

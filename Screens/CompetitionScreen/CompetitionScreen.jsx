@@ -18,14 +18,10 @@ import { CompStyles } from "./CompetitionScreenStyles";
 
 const CompetitionScreen = ({ route, navigation }) => {
   const project = route.params.CompData;
-  console.log(project);
 
   const deviceDateTime = new Date();
   const CompEndDate = new Date(project.EndDate);
   const CompStartDate = new Date(project.StartDate);
-
-  console.log(deviceDateTime);
-  console.log(CompEndDate);
 
   const date1 = new Date(deviceDateTime);
   const date2 = new Date(CompEndDate);
@@ -35,12 +31,6 @@ const CompetitionScreen = ({ route, navigation }) => {
 
   const remainingTime = totalTimeSpan - timeDifference;
   const percentageProgress = (remainingTime / totalTimeSpan) * 100;
-
-  console.log(
-    `The percentage progress towards the end date is ${percentageProgress.toFixed(
-      2
-    )}%`
-  );
 
   const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
   const hoursLeft = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
@@ -53,18 +43,16 @@ const CompetitionScreen = ({ route, navigation }) => {
       //get data when viewing screen
       getAll();
       return () => {
-        //clean up
-        console.log("not in view");
       };
     }, [])
   );
 
   const getAll = async () => {
     setLoading(true);
-    console.log("getting data");
+
     const allCompetitions = await getSubmissionsById(project.CompId);
+
     setCompetitions(allCompetitions);
-    console.log(allCompetitions);
   };
 
   const imageSource = {
@@ -94,9 +82,7 @@ const CompetitionScreen = ({ route, navigation }) => {
         </ImageBackground>
         <View style={CompStyles.BottomContainer}>
           <View style={CompStyles.Description}>
-            {/* <ScrollView > */}
             <Text style={[Global.Paragraph]}>{project.Description}</Text>
-            {/* </ScrollView> */}
           </View>
 
           <View
@@ -118,7 +104,9 @@ const CompetitionScreen = ({ route, navigation }) => {
               </View>
             ))}
           </View>
+
           <Text style={Global.HeadingTwo}>Rules</Text>
+          
           <View style={NewCompScreenStyle.StepsContainer}>
             {project.Rules.map((Item, index) => (
               <View key={index} style={NewCompScreenStyle.StepsView}>
