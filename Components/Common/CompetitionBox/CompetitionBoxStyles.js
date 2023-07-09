@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "../../../Utils/ReUsables";
+import { Colors, Shadow, lightShadow } from "../../../Utils/ReUsables";
 
 export const CompetitionBoxStyles = StyleSheet.create({
   Container: {
@@ -41,14 +41,7 @@ export const CompetitionBoxStyles = StyleSheet.create({
     height: 32,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
-    shadowColor: "#464646",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.06,
-    shadowRadius: 3,
-    elevation: 3,
+    ...lightShadow,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

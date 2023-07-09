@@ -12,6 +12,7 @@ const HomeScreen = () => {
   const [Competitions, setCompetitions] = useState([]);
   const [Loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [filter, setFilter] = useState();
 
   useFocusEffect(
     useCallback(() => {
@@ -70,12 +71,17 @@ const HomeScreen = () => {
             <Loader loading={Loading} position={""} />
 
             {error ? (
-              <Text style={Global.Paragraph}>Error: {error}</Text>
+              <Text style={Global.Error}>Error: {error}</Text>
             ) : (
               <>
                 {Competitions.map((item, index) => {
                   return (
-                    <CompetitionBox key={index} Index={index} CompData={item} />
+                    <CompetitionBox
+                      key={index}
+                      Index={index}
+                      CompData={item}
+                      allData={Competitions}
+                    />
                   );
                 })}
               </>

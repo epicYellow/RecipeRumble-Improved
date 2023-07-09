@@ -8,3 +8,25 @@ export const Colors = {
   Gray: "#615E63",
   Green: "#AFE595",
 };
+
+export const Shadow = {
+  shadowColor: "#464646",
+  shadowOffset: {
+    width: 0,
+    height: 3,
+  },
+  shadowOpacity: 0.08,
+  shadowRadius: 5,
+  elevation: 5,
+};
+
+export const lightShadow = {
+  shadowColor: "#464646",
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.06,
+  shadowRadius: 3,
+  elevation: 3,
+};

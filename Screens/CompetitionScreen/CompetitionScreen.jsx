@@ -4,13 +4,11 @@ import {
   Image,
   ImageBackground,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
 import BackButton from "../../Components/Partials/BackButton/BackButton";
-import { getSubmissionsById } from "../../Services/CompetitionService";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
 import { NewCompScreenStyle } from "../NewCompScreen/NewCompScreenScreenStyle";
@@ -18,6 +16,7 @@ import { CompStyles } from "./CompetitionScreenStyles";
 
 const CompetitionScreen = ({ route, navigation }) => {
   const project = route.params.CompData;
+  const allData = route.params.allData;
 
   const deviceDateTime = new Date();
   const CompEndDate = new Date(project.EndDate);
@@ -34,26 +33,6 @@ const CompetitionScreen = ({ route, navigation }) => {
 
   const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
   const hoursLeft = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
-
-  const [Competitions, setCompetitions] = useState([]);
-  const [Loading, setLoading] = useState(false);
-
-  useFocusEffect(
-    useCallback(() => {
-      //get data when viewing screen
-      getAll();
-      return () => {
-      };
-    }, [])
-  );
-
-  const getAll = async () => {
-    setLoading(true);
-
-    const allCompetitions = await getSubmissionsById(project.CompId);
-
-    setCompetitions(allCompetitions);
-  };
 
   const imageSource = {
     uri: project.Image,
@@ -75,7 +54,7 @@ const CompetitionScreen = ({ route, navigation }) => {
                 source={require("../../assets/icons/Two-user.png")}
               />
               <Text style={Global.Paragraph}>
-                {Competitions.length === 0 ? 0 : Competitions.length}
+                {allData.length === 0 ? 0 : allData.length}
               </Text>
             </View>
           </View>
@@ -106,7 +85,7 @@ const CompetitionScreen = ({ route, navigation }) => {
           </View>
 
           <Text style={Global.HeadingTwo}>Rules</Text>
-          
+
           <View style={NewCompScreenStyle.StepsContainer}>
             {project.Rules.map((Item, index) => (
               <View key={index} style={NewCompScreenStyle.StepsView}>
@@ -133,7 +112,7 @@ const CompetitionScreen = ({ route, navigation }) => {
             <Text style={Global.HeadingTwo}>Submissions:</Text>
             <Text style={Global.HeadingTwo}>
               {" "}
-              {Competitions.length === 0 ? 0 : Competitions.length}
+              {allData.length === 0 ? 0 : allData.length}
             </Text>
           </View>
 

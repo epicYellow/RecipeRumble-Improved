@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "../../Utils/ReUsables";
+import { Colors, Shadow } from "../../Utils/ReUsables";
 
 export const HomeStyles = StyleSheet.create({
   Container: {
@@ -11,18 +11,14 @@ export const HomeStyles = StyleSheet.create({
     padding: 10,
     paddingTop: 35,
     resizeMode: "cover",
-    // paddingLeft: 10,
     paddingRight: 20,
     marginBottom: 15,
-    // width: null,
     height: 200,
     width: null,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    // backgroundColor: "red",
-    // marginBottom: 10,
   },
   Intro: {
     padding: 10,
@@ -40,9 +36,7 @@ export const HomeStyles = StyleSheet.create({
   },
   Competitions: {
     padding: 10,
-
     width: null,
-    // paddingBottom: 60,
   },
   hide: {
     display: "none",
@@ -57,14 +51,15 @@ export const HomeStyles = StyleSheet.create({
     height: 55,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
-    shadowColor: "#464646",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.08,
-    shadowRadius: 5,
-    elevation: 5,
+    // ...Shadow,
+    // shadowColor: "#464646",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.08,
+    // shadowRadius: 5,
+    // elevation: 5,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
