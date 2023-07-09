@@ -21,12 +21,14 @@ export const LogInFun = async (email, password) => {
       // ]);
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode + ": " + errorMessage);
-      Alert.alert("Email or Password is incorrect", errorMessage, [
-        { text: "Back", onPress: () => {} },
-      ]);
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+      // console.log(errorMessage);
+      Alert.alert(
+        "Email or Password is incorrect",
+        "Make sure you entered the correct details",
+        [{ text: "Back", onPress: () => {} }]
+      );
     });
 };
 

@@ -152,8 +152,9 @@ const ProfileScreen = ({ navigation }) => {
               <View style={ProfileStyles.innerContainerScroll}>
                 <Loader loading={Loading} position={""} />
 
-                {Competitions.map((items) => (
+                {Competitions.map((items, index) => (
                   <ProfileSubmissions
+                    key={index}
                     Image={items.Image}
                     Likes={items.Likes}
                     VoteData={items}

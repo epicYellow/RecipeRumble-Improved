@@ -64,16 +64,7 @@ const CompetitionScreen = ({ route, navigation }) => {
             <Text style={[Global.Paragraph]}>{project.Description}</Text>
           </View>
 
-          <View
-            style={{
-              marginTop: 30,
-              marginBottom: 30,
-              width: "90%",
-              alignSelf: "center",
-              borderBottomColor: Colors.Gray,
-              borderBottomWidth: 0.5,
-            }}
-          />
+          <View style={Global.separator} />
 
           <Text style={Global.HeadingTwo}>Requirements</Text>
           <View style={NewCompScreenStyle.IngredientsContainer}>
@@ -96,17 +87,7 @@ const CompetitionScreen = ({ route, navigation }) => {
             ))}
           </View>
 
-          <View
-            style={{
-              marginTop: 30,
-              marginBottom: 30,
-              width: "90%",
-              alignSelf: "center",
-
-              borderBottomColor: Colors.Gray,
-              borderBottomWidth: 0.5,
-            }}
-          />
+          <View style={Global.separator} />
 
           <View style={CompStyles.SubmissionSection}>
             <Text style={Global.HeadingTwo}>Submissions:</Text>

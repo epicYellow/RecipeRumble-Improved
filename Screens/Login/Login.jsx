@@ -5,9 +5,7 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   ScrollView,
-  StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -26,26 +24,35 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const [emailError, setemailError] = useState("");
-  const [passwordError, setpasswordError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const [Loading, setLoading] = useState(false);
 
   const LogIn = async () => {
-    // console.log("Logging in");
     setLoading(true);
 
-    if (email === "") {
+    if (!password) {
+      setPasswordError("Please enter your password");
+    } else {
+      setPasswordError("");
+    }
+
+    if (!email) {
       setemailError("Please enter your email");
-      setLoading(false);
+    } else {
+      setemailError("");
     }
-    if (password === "") {
-      setpasswordError("Please enter a password");
+
+    if (!email && !password) {
       setLoading(false);
-    }
-    if (email !== "" && password !== "") {
-      await LogInFun(email, password).then(() => {
+    } else {
+      try {
+        await LogInFun(email, password);
+      } catch (err) {
+        console.log(err);
+      } finally {
         setLoading(false);
-      });
+      }
     }
   };
 
@@ -77,10 +84,10 @@ const Login = () => {
           </Text>
         </View>
 
-        <View style={{ marginTop: "10%" }}></View>
+        <View style={{ marginVertical: 20 }}></View>
 
-        <View style={LoginStyles.InputContainer}>
-          <KeyboardAvoidingView behavior="padding" enabled>
+        <KeyboardAvoidingView behavior="padding" enabled>
+          <View style={LoginStyles.InputContainer}>
             <Input
               Place={"Email"}
               Type={"email-address"}
@@ -89,8 +96,7 @@ const Login = () => {
               setProp={setEmail}
               SecureEntry={false}
             />
-          </KeyboardAvoidingView>
-          <KeyboardAvoidingView behavior="padding" enabled>
+
             <Input
               Place={"Password"}
               Type={"default"}
@@ -99,21 +105,14 @@ const Login = () => {
               setProp={setPassword}
               SecureEntry={true}
             />
-          </KeyboardAvoidingView>
-        </View>
+          </View>
+        </KeyboardAvoidingView>
 
-        <View style={{ marginTop: "20%" }}></View>
+        <View style={{ marginVertical: 40 }}></View>
 
         <Button OnPress={LogIn} ButtonType={"Primary"} ButText={"Login"} />
 
-        <View
-          style={{
-            flexDirection: "row",
-            padding: 10,
-            marginTop: 35,
-            justifyContent: "space-around",
-          }}
-        >
+        <View style={LoginStyles.DontHaveAccountSec}>
           <Text style={Global.CompetitionFont}>Don't have an account?</Text>
           <TouchableOpacity onPress={() => navigation.navigate("Register")}>
             <Text style={[LoginStyles.AccountBold, { color: Colors.Red }]}>

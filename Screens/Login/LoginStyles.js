@@ -42,4 +42,10 @@ export const LoginStyles = StyleSheet.create({
   Headings: {
     textAlign: "left",
   },
+  DontHaveAccountSec: {
+    flexDirection: "row",
+    padding: 10,
+    marginTop: 35,
+    justifyContent: "space-around",
+  },
 });
