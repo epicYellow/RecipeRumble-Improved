@@ -1,0 +1,112 @@
+import { StyleSheet, Text, View } from "react-native";
+import { Colors } from "../../Utils/ReUsables";
+
+export const ResultsStyles = StyleSheet.create({
+  Container: {},
+  Image: {
+    height: 200,
+    width: null,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    padding: 10,
+    paddingTop: 50,
+  },
+  InfoContainer: {
+    backgroundColor: Colors.Dirty_White,
+    width: "75%",
+    height: 120,
+    borderRadius: 10,
+    padding: 10,
+    paddingLeft: 20,
+    alignItems: "baseline",
+    justifyContent: "space-around",
+    shadowColor: "#464646",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 5,
+  },
+  Icon: {
+    width: 24,
+    height: 24,
+  },
+  IconButt: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+  },
+  IconButtBack: {
+    width: 55,
+    height: 55,
+    backgroundColor: Colors.Dirty_White_Dark,
+    borderRadius: 10,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  innerContainer: {
+    width: 60,
+    height: 24,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  BottomContainer: {
+    padding: 20,
+    flexDirection: "column",
+  },
+  ButtonVoteSub: {
+    width: null,
+    height: 90,
+    backgroundColor: Colors.Dirty_White_Darker,
+    borderRadius: 10,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    borderRadius: 10,
+  },
+  Description: {
+    height: 120,
+  },
+  ButtonText: {
+    width: 125,
+  },
+  SubmissionSection: {
+    marginTop: 25,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: 40,
+    width: null,
+  },
+  ResultsSection: {
+    width: null,
+    height: 35,
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  ParticipantsResults: {
+    height: 180,
+  },
+  Butt: {
+    height: "10%",
+    alignSelf: "center",
+  },
+  LeaderItem: {
+    // backgroundColor: Colors.LightGreen,
+    padding: 10,
+    justifyContent: "space-between",
+    alignContent: "space-between",
+    marginTop: 15,
+    height: 75,
+  },
+});

@@ -1,0 +1,123 @@
+import { StyleSheet, Text, View } from "react-native";
+import { Colors } from "../../Utils/ReUsables";
+
+export const CompStyles = StyleSheet.create({
+  Container: {
+    // padding: 20,
+  },
+  Image: {
+    height: 250,
+    width: null,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    padding: 10,
+    paddingTop: 50,
+  },
+  InfoContainer: {
+    backgroundColor: Colors.Dirty_White,
+    width: "75%",
+    height: 160,
+    borderRadius: 10,
+    padding: 10,
+    paddingLeft: 20,
+    alignItems: "baseline",
+    justifyContent: "space-around",
+    shadowColor: "#464646",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 5,
+  },
+  Icon: {
+    width: 24,
+    height: 24,
+  },
+  IconButt: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+  },
+  IconButtBack: {
+    width: 55,
+    height: 55,
+    backgroundColor: Colors.Dirty_White_Dark,
+    borderRadius: 10,
+    shadowColor: "#464646",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 5,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  innerContainer: {
+    width: 60,
+    height: 24,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  BottomContainer: {
+    padding: 20,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    paddingBottom: 85,
+  },
+  ButtonVoteSub: {
+    marginTop: 30,
+    width: null,
+    height: 90,
+    backgroundColor: Colors.Dirty_White_Darker,
+    borderRadius: 10,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    borderRadius: 10,
+  },
+  Description: {
+    marginBottom: 10,
+    // height: 120,
+  },
+  ButtonText: {
+    width: 125,
+  },
+  ButtonTextTwo: {
+    width: 200,
+  },
+  SubmissionSection: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: 40,
+    width: null,
+    paddingRight: 20,
+  },
+  hide: {
+    display: "none",
+  },
+  ProgressOuter: {
+    marginTop: 10,
+    width: "100%",
+    height: 25,
+    backgroundColor: Colors.Dirty_White_Darker,
+    borderRadius: 25,
+  },
+  ProgressInner: {
+    height: 25,
+    borderRadius: 25,
+  },
+});
