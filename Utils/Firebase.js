@@ -7,12 +7,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCkufSIwt0JpKIoCD-lFdhPQY800OzTPXY",
-  authDomain: "reciperumble-f3601.firebaseapp.com",
-  projectId: "reciperumble-f3601",
-  storageBucket: "reciperumble-f3601.appspot.com",
-  messagingSenderId: "820427965916",
-  appId: "1:820427965916:web:4dd896edce77c09ad83b19",
+  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
